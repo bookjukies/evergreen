@@ -14,7 +14,7 @@ export const ProductProvider = ({ children }) => {
   }, []);
   //call back function to get the product data from the backend
   const getProducts = async () => {
-    const itemsRes = await axios.get("http://192.168.43.159:8000/");
+    const itemsRes = await axios.get("https://mimi-client.onrender.com/");
     if (itemsRes.data.length > 0) {
       setLoading(false);
     }

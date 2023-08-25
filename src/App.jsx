@@ -22,7 +22,7 @@ function App() {
   const [isCheckout, setIsCheckout] = useState(false);
 
   useEffect(() => {
-    axios.get("http://192.168.43.159:8000/");
+    axios.get("https://mimi-client.onrender.com/");
   }, []);
 
   const haddleToggle = () => {
