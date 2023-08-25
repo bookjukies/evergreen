@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TypingEffect from "./utils/TypingEffect";
 
 const Home = (props) => {
-  props.setIsCheckout(false)
+  props.setIsCheckout(false);
   const [isActive, setIsActive] = useState(null);
 
   const data = [
@@ -55,7 +55,7 @@ const Home = (props) => {
   };
   return (
     <>
-    <section className="bg-stone-100 md:grid md:grid-cols-2 md:grid-rows-1 md:mb-6">
+      <section className="bg-stone-100 md:grid md:grid-cols-2 md:grid-rows-1 md:mb-6">
         <img
           className="md:col-start-2 md:justify-self-end"
           src="/images/long5.jpg"
@@ -144,12 +144,15 @@ const Home = (props) => {
             </article>
           ))}
         </section>
-        <Link to='/products' className="w-[90vw] md:w-2/5 justify-self-center block border border-black text-center py-2 my-4 font-bold focus:bg-black focus:text-white hover:bg-black hover:text-white">
+        <Link
+          to="/products"
+          className="w-[90vw] md:w-2/5 justify-self-center block border border-black text-center py-2 my-4 font-bold focus:bg-black focus:text-white hover:bg-black hover:text-white"
+        >
           View Full Cateloge
         </Link>
       </div>
-      <section className="px-4 md:grid" id='faq'onClick={handleQFA}>
-        <h4 className="text-xl font-bold my-4 md:text-center" >
+      <section className="px-4 md:grid" id="faq" onClick={handleQFA}>
+        <h4 className="text-xl font-bold my-4 md:text-center">
           Frequently Asked Questions
         </h4>
         <article className="md:w-3/5 md:justify-self-center">
@@ -209,7 +212,7 @@ const Home = (props) => {
         </article>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

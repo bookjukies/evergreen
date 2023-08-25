@@ -8,14 +8,13 @@ import { ProductProvider } from "./Context/ProductsContext";
 import Home from "./components/Home";
 import SideBar from "./components/ui/SideBar";
 import Checkout from "./components/checkout/Checkout";
-import Details from "./components/checkout/Test";
+import Details from "./components/checkout/Details";
 import Shipping from "./components/checkout/Shipping";
 import Payment from "./components/checkout/Payment";
 import Footer from "./components/ui/Footer";
 import Menu from "./components/ui/Menu";
 import NotFound from "./components/utils/NotFound";
 import TrackOrder from "./components/checkout/TrackOrder";
-import Test from "./components/checkout/Test";
 
 function App() {
   const [bagToggle, setBagToggle] = useState(false);
@@ -56,8 +55,6 @@ function App() {
           bagToggle={bagToggle}
         />
 
-
-
         <Routes>
           <Route path="/" element={<Home setIsCheckout={setIsCheckout} />} />
           <Route path="/products" element={<ProductList />} />
@@ -67,17 +64,12 @@ function App() {
             path="/checkout"
             element={<Checkout setIsCheckout={setIsCheckout} />}
           >
-            <Route path="" element={<Details />} />
+            <Route index element={<Details />} />
             <Route path="shipping" element={<Shipping />} />
             <Route path="payment" element={<Payment />} />
           </Route>
           <Route path="/order-status" element={<TrackOrder />} />
           <Route path="checkout/payment/return" element={<h1>Welcome</h1>} />
-          <Route path="checkout/payment/cancel" element={<h1>Welcome</h1>} />
-          <Route path="checkout/payment/notify" element={<h1>Welcome</h1>} />
-
-          <Route path="/test" element={<Test />} />
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ProductProvider>
