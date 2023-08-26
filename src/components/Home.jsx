@@ -1,10 +1,20 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation} from "react-router-dom";
 import TypingEffect from "./utils/TypingEffect";
 
 const Home = (props) => {
+
   props.setIsCheckout(false);
   const [isActive, setIsActive] = useState(null);
+  const {hash} = useLocation()
+  const scrollToRef = useRef(null);
+
+  useEffect(() => {
+    if (hash === "#faq") {
+      scrollToRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
 
   const data = [
     {
@@ -151,7 +161,7 @@ const Home = (props) => {
           View Full Cateloge
         </Link>
       </div>
-      <section className="px-4 md:grid" id="faq" onClick={handleQFA}>
+      <section className="px-4 md:grid" id="faq"  >
         <h4 className="text-xl font-bold my-4 md:text-center">
           Frequently Asked Questions
         </h4>
@@ -195,6 +205,7 @@ const Home = (props) => {
           <div
             className="px-4 py-4 border-2 rounded my-2 hover:bg-black hover:text-white "
             id="pay"
+            onClick={handleQFA} ref={scrollToRef}
           >
             <h5 className="font-bold py-2" id="pay">
               How do i pay for my order?

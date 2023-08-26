@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom"; 
 import axios from "axios";
 import Header from "./components/ui/Header";
 import ProductList from "./components/product/ProductList";
 import ProductDetails from "./components/product/ProductDetails";
 import { ProductProvider } from "./Context/ProductsContext";
 import Home from "./components/Home";
-import SideBar from "./components/ui/SideBar";
 import Checkout from "./components/checkout/Checkout";
 import Details from "./components/checkout/Details";
 import Shipping from "./components/checkout/Shipping";
 import Payment from "./components/checkout/Payment";
 import Footer from "./components/ui/Footer";
-import Menu from "./components/ui/Menu";
 import NotFound from "./components/utils/NotFound";
 import TrackOrder from "./components/checkout/TrackOrder";
 
@@ -20,10 +18,23 @@ function App() {
   const [bagToggle, setBagToggle] = useState(false);
   const [toggleCross, setToggleCross] = useState(false);
   const [isCheckout, setIsCheckout] = useState(false);
+  const { pathname, hash } = useLocation();
+  
 
   useEffect(() => {
     axios.get("https://mimi-client.onrender.com/");
   }, []);
+
+  
+  useEffect(() => {
+
+    if(hash === '#faq'){
+      return
+    } else{
+       window.scrollTo(0, 0);
+    }   
+  }, [pathname]);
+
 
   const haddleToggle = () => {
     //if the burger menu is open close it and the open the bag

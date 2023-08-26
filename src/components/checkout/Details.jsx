@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
+
 
 const Details = () => {
-  const { register, handleSubmit, setValue, control } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const navigate = useNavigate();
 
